@@ -30,9 +30,9 @@ public class Config {
     private static final ForgeConfigSpec.ConfigValue<Boolean> DUPED_ENEMIES_DROP_LOOT = BUILDER
             .comment("Whether duped entities drop items and xp")
             .define("duped_entities_drop_loot", false);
-    private static final ForgeConfigSpec.ConfigValue<Integer> DUPED_GRACE_PERIOD = BUILDER
+    private static final ForgeConfigSpec.ConfigValue<Long> DUPED_GRACE_PERIOD = BUILDER
             .comment("The number of ticks a duped entity can live before it is automatically killed. Set to a number <=0 to disable automatic killing entirely.")
-            .define("grace_period", 20 * 60);
+            .define("grace_period", 20L * 60);
     private static final ForgeConfigSpec.ConfigValue<Boolean> GRACE_END_INSTAKILL = BUILDER
             .comment("Whether to instakill entities after the grace period has passed. If false, it will apply infinite wither II instead.")
             .define("grace_end_instakill", true);
@@ -47,7 +47,7 @@ public class Config {
     public static Set<EntityType<?>> targetBlacklist;
     public static boolean targetBlacklistIsWhitelist;
     public static boolean dupedEntitiesDropLoot;
-    public static int gracePeriod;
+    public static long gracePeriod;
     public static boolean graceEndInstakill;
     public static boolean sameTypeDuping;
 
