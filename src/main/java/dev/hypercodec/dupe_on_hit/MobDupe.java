@@ -110,7 +110,6 @@ public class MobDupe {
             copy.copyPosition(source);
 
             CompoundTag tag = source.saveWithoutId(new CompoundTag());
-            tag.put("ActiveEffects", new ListTag());
             tag.putBoolean("ignited", false);
             LOGGER.info("Saving entity data: {}", tag);
             copy.load(tag);
@@ -126,14 +125,6 @@ public class MobDupe {
 
             if(!Config.dupedEntitiesDropLoot)
                 copy.skipDropExperience();
-
-            for (MobEffectInstance instance : source.getActiveEffects()) {
-                MobEffect effect = instance.getEffect();
-
-                if (!effect.isInstantenous()) {
-                    copy.addEffect(new MobEffectInstance(instance));
-                }
-            }
 
             if(copy instanceof Raider raider) {
                 Raider sourceRaider = (Raider) source;
